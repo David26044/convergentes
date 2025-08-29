@@ -36,7 +36,12 @@ android {
 }
 
 dependencies {
-
+// Retrofit
+    implementation(libs.retrofit.v290)
+// Converter GSON para trabajar con JSON
+    implementation(libs.converter.gson)
+// GSON library (necesaria también)
+    implementation(libs.gson)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
