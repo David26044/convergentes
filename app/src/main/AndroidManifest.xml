@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="co.edu.unipiloto.proyectodconvergentes">
-
     <!-- 🔑 Permiso para usar internet -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -15,22 +14,24 @@
         android:theme="@style/Theme.ProyectoDConvergentes"
         android:usesCleartextTraffic="true"
         tools:targetApi="23">
-
-        <!-- Registro -->
+        <activity
+            android:name=".ui.order.RegisterOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.incident.RegisterIncidentActivity"
+            android:exported="false" /> <!-- Registro -->
         <activity
             android:name=".ui.register.RegisterActivity"
-            android:exported="false" />
-
-        <!-- Login (actividad principal que abre la app) -->
+            android:exported="false" /> <!-- Login (actividad principal que abre la app) -->
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
-</manifest>
 
+</manifest>

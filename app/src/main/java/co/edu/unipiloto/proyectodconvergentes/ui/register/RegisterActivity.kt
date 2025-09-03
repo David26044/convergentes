@@ -6,7 +6,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import co.edu.unipiloto.proyectodconvergentes.R
-import co.edu.unipiloto.proyectodconvergentes.ui.RetrofitClient
+import co.edu.unipiloto.proyectodconvergentes.ui.net.RetrofitClient
 import kotlinx.coroutines.launch
 
 class RegisterActivity : AppCompatActivity() {
@@ -39,8 +39,6 @@ class RegisterActivity : AppCompatActivity() {
 
                 lifecycleScope.launch {
                     try {
-
-
                         val request = UserRegisterRequest(
                             name,
                             identification,

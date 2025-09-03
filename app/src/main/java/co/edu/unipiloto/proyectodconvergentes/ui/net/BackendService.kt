@@ -1,4 +1,4 @@
-package co.edu.unipiloto.proyectodconvergentes.ui
+package co.edu.unipiloto.proyectodconvergentes.ui.net
 
 import co.edu.unipiloto.proyectodconvergentes.ui.register.UserRegisterRequest
 import co.edu.unipiloto.proyectodconvergentes.ui.register.UserRegisterResponse
