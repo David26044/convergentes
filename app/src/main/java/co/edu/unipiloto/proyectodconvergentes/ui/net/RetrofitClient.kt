@@ -1,4 +1,4 @@
-package co.edu.unipiloto.proyectodconvergentes.ui
+package co.edu.unipiloto.proyectodconvergentes.ui.net
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
