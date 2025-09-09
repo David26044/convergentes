@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import co.edu.unipiloto.proyectodconvergentes.R
+import co.edu.unipiloto.proyectodconvergentes.ui.incident.RegisterIncidentActivity
+import co.edu.unipiloto.proyectodconvergentes.ui.order.RegisterOrderActivity
 import co.edu.unipiloto.proyectodconvergentes.ui.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {

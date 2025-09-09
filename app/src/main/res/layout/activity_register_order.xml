@@ -40,11 +40,11 @@
                     android:layout_height="wrap_content"
                     android:hint="Tipo de producto"/>
 
-                <EditText
-                    android:id="@+id/etPaymentMethod"
+                <Spinner
+                    android:id="@+id/spPaymentMethod"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Forma de pago"/>
+                    android:spinnerMode="dropdown"/>
 
                 <EditText
                     android:id="@+id/etDeclaredValue"
