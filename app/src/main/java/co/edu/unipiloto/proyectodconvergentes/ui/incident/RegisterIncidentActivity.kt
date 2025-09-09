@@ -17,17 +17,16 @@ class RegisterIncidentActivity : AppCompatActivity() {
         val etDelayTime = findViewById<EditText>(R.id.etDelayTime)
         val btnRegisterIncident = findViewById<Button>(R.id.btnRegisterIncident)
 
-        val descriptionIncident = etDescriptionIncident.text.toString()
-        val delayTime = etDelayTime.text.toString()
-
         btnRegisterIncident.setOnClickListener {
+            val descriptionIncident = etDescriptionIncident.text.toString()
+            val delayTime = etDelayTime.text.toString()
 
-            if (descriptionIncident.isEmpty() || delayTime.isEmpty()){
-                    Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+            if (descriptionIncident.isEmpty() || delayTime.isEmpty()) {
+                Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Incidente registrado correctamente", Toast.LENGTH_SHORT).show()
+                // Aquí puedes guardar en BD o enviar al backend 🚀
             }
-
-
-        }
-
         }
     }
+}
