@@ -1,7 +1,7 @@
 package co.edu.unipiloto.proyectodconvergentes.ui.register
 
-data class UserRegisterRequest(val name: String,
-                               val identification: String,
+data class UserRegisterRequest(val email: String,
+                               val password: String,
+                               val name: String,
                                val phoneNumber: String,
-                               val email: String,
-                               val password: String)
+                               val identification: String)
