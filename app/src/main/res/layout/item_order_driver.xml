@@ -1,6 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="12dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/txtDriverOrderId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Orden #"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/txtDriverOrderState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estado"/>
+
+    <!-- Dirección de recogida -->
+    <TextView
+        android:id="@+id/txtPickupAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pickup: "/>
+
+    <!-- Dirección de entrega -->
+    <TextView
+        android:id="@+id/txtDeliveryAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delivery: "/>
+
+    <!-- Instrucciones -->
+    <TextView
+        android:id="@+id/txtInstructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Instrucciones: "/>
+
+    <!-- Preguntar por -->
+    <TextView
+        android:id="@+id/txtAskFor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Preguntar por: "/>
+
+</LinearLayout>

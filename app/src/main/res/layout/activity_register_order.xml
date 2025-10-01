@@ -34,11 +34,12 @@
                     android:textSize="18sp"
                     android:paddingBottom="8dp"/>
 
-                <EditText
-                    android:id="@+id/etProductType"
+                <Spinner
+                    android:id="@+id/spProductType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Tipo de producto"/>
+                    android:spinnerMode="dropdown"/>
+
 
                 <Spinner
                     android:id="@+id/spPaymentMethod"
@@ -88,6 +89,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Tipo de vía"/>
+
+                <EditText
+                    android:id="@+id/etNumberViaPickUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Número de vía"/>
 
                 <EditText
                     android:id="@+id/etApartmentPickUp"
@@ -193,8 +200,7 @@
                     android:hint="Preguntar por"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
-
+        
         <Button
             android:id="@+id/btnRegisterDelivery"
             android:layout_width="match_parent"

@@ -1,10 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainMenuLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.mainMenu.MainMenuActivity">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnCreateOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Orden"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnViewOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Órdenes"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnAssignOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Asignar Órdenes"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnRegisterIncident"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar Incidencia"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar sesión"/>
+
+    <Button
+        android:id="@+id/btnMyOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mis Órdenes"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnDriverOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Mis Órdenes"
+        android:visibility="gone"/>
+
+
+    <Button
+        android:id="@+id/btnChangeOrderState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cambiar Estado de Órdenes"
+        android:visibility="gone"/>
+
+
+</LinearLayout>

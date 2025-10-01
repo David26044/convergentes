@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@android:color/white"
+    android:layout_margin="8dp"
+    android:elevation="2dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvOrderId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Orden #1"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tvOrderState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estado: CREADA"
+        android:textStyle="italic"
+        android:textSize="14sp"
+        android:textColor="@android:color/holo_red_dark" />
+
+    <TextView
+        android:id="@+id/tvProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Producto: "
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvPayment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pago: "
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvDeclaredValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor declarado: "
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvPickup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recoger en: "
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvPickupDriver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conductor recogida: "
+        android:textSize="13sp"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <TextView
+        android:id="@+id/tvDelivery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Entregar en: "
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvDeliveryDriver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conductor entrega: "
+        android:textSize="13sp"
+        android:textColor="@android:color/holo_green_dark" />
+
+</LinearLayout>
