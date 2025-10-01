@@ -36,6 +36,9 @@ android {
 }
 
 dependencies {
+    // DataStore (Preferences)
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 // Retrofit
     implementation(libs.retrofit.v290)
 // Converter GSON para trabajar con JSON

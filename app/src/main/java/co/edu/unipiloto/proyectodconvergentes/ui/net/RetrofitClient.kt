@@ -3,14 +3,13 @@ package co.edu.unipiloto.proyectodconvergentes.ui.net
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitClient{
-    private const val BASE_URL = Constants.BASE_URL
-
-    val instance: BackendService by lazy {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
+object RetrofitClient {
+    // USO: val auth = RetrofitClient.authService
+    val authService: BackendService by lazy {
+        Retrofit.Builder()
+            .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        retrofit.create(BackendService::class.java)
+            .create(BackendService::class.java)
     }
 }
