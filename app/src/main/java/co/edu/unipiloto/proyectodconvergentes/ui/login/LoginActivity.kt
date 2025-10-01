@@ -6,13 +6,12 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import co.edu.unipiloto.proyectodconvergentes.R
-import co.edu.unipiloto.proyectodconvergentes.ui.incident.RegisterIncidentActivity
+import co.edu.unipiloto.proyectodconvergentes.ui.mainMenu.MainMenuActivity
 import co.edu.unipiloto.proyectodconvergentes.ui.net.JwtDecoder
 import co.edu.unipiloto.proyectodconvergentes.ui.net.RetrofitClient
 import co.edu.unipiloto.proyectodconvergentes.ui.net.Roles
 import co.edu.unipiloto.proyectodconvergentes.ui.net.TokenManager
 import co.edu.unipiloto.proyectodconvergentes.ui.net.hasAnyRole
-import co.edu.unipiloto.proyectodconvergentes.ui.order.RegisterOrderActivity
 import co.edu.unipiloto.proyectodconvergentes.ui.register.RegisterActivity
 import kotlinx.coroutines.launch
 
@@ -62,9 +61,9 @@ class LoginActivity : AppCompatActivity() {
 
                             // Navegar según rol (ajusta Activities si lo deseas)
                             val next = when {
-                                roles.hasAnyRole(Roles.ADMIN)  -> RegisterIncidentActivity::class.java
-                                roles.hasAnyRole(Roles.DRIVER) -> RegisterOrderActivity::class.java
-                                else                           -> RegisterOrderActivity::class.java
+                                roles.hasAnyRole(Roles.ADMIN)  -> MainMenuActivity::class.java
+                                roles.hasAnyRole(Roles.DRIVER) -> MainMenuActivity::class.java
+                                else                           -> MainMenuActivity::class.java
                             }
                             startActivity(Intent(this@LoginActivity, next))
                             finish()
