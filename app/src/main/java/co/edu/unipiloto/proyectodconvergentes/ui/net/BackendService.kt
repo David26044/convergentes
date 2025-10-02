@@ -10,6 +10,8 @@ import co.edu.unipiloto.proyectodconvergentes.ui.order.OrderRequest
 import co.edu.unipiloto.proyectodconvergentes.ui.order.OrderResponse
 import co.edu.unipiloto.proyectodconvergentes.ui.order.PaymentMethodResponse
 import co.edu.unipiloto.proyectodconvergentes.ui.order.ProductTypeResponse
+import co.edu.unipiloto.proyectodconvergentes.ui.qualification.QualificationResponse
+import co.edu.unipiloto.proyectodconvergentes.ui.qualification.RegisterQualificationRequest
 import co.edu.unipiloto.proyectodconvergentes.ui.register.UserRegisterRequest
 import co.edu.unipiloto.proyectodconvergentes.ui.register.UserRegisterResponse
 import retrofit2.Response
@@ -62,4 +64,11 @@ interface BackendService {
         @Path("orderId") orderId: Long
     ): Response<OrderResponse>
 
+    @POST(Constants.PATH_CREATE_QUALIFICATION) suspend fun createQualification(
+        @Body request: RegisterQualificationRequest): Response<QualificationResponse>
+
+    @GET(Constants.PATH_GET_ORDERS_ME_DELIVERED) suspend fun getOrdersDelivered(): Response<List<OrderResponse>>
+
+    @GET("qualifications")
+    suspend fun getAllQualifications(): Response<List<QualificationResponse>>
 }

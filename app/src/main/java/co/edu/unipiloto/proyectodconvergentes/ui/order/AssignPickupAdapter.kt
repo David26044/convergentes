@@ -49,7 +49,6 @@ class AssignPickupAdapter(
         holder.tvPickup.text =
             "Recoger en: ${order.pickUpLocation.city} - ${order.pickUpLocation.typeVia} ${order.pickUpLocation.numberVia}"
 
-        // 🚫 Ocultar views de entrega si existen en el layout
         try {
             val tvDelivery = holder.itemView.findViewById<TextView>(R.id.tvDelivery)
             val spinnerDelivery = holder.itemView.findViewById<Spinner>(R.id.spinnerDeliveryDriver)
