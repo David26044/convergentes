@@ -63,5 +63,27 @@
         android:text="Cambiar Estado de Órdenes"
         android:visibility="gone"/>
 
+    <Button
+        android:id="@+id/btnDeliveredOrdersToQualify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calificar mis órdenes entregadas"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnAllQualifications"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver todas las calificaciones"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnAssignInHub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Asignar en hub"
+        android:visibility="gone"/>
+
+
 
 </LinearLayout>
