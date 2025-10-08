@@ -59,7 +59,7 @@ class GetDeliveredOrdersForQualificationActivity : AppCompatActivity() {
                     return@launch
                 }
 
-                val ordersResponse: Response<List<OrderResponse>> = backendService.getOrdersDelivered()
+                val ordersResponse: Response<List<OrderResponse>> = backendService.getOrdersMeDelivered()
                 progressBarDelivered.visibility = View.GONE
 
                 if (ordersResponse.isSuccessful) {

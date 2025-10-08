@@ -71,8 +71,12 @@ interface BackendService {
     @POST(Constants.PATH_CREATE_QUALIFICATION) suspend fun createQualification(
         @Body request: RegisterQualificationRequest): Response<QualificationResponse>
 
-    @GET(Constants.PATH_GET_ORDERS_ME_DELIVERED) suspend fun getOrdersDelivered(): Response<List<OrderResponse>>
+    @GET(Constants.PATH_GET_ORDERS_ME_DELIVERED) suspend fun getOrdersMeDelivered(): Response<List<OrderResponse>>
 
     @GET("qualifications")
     suspend fun getAllQualifications(): Response<List<QualificationResponse>>
+
+    @GET(Constants.PATH_GET_ORDERS_DELIVERED)
+    suspend fun getOrdersDelivered():Response<List<OrderResponse>>
 }
+

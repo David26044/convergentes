@@ -1,5 +1,7 @@
 package co.edu.unipiloto.proyectodconvergentes.ui.net
 
+import java.nio.file.Path
+
 object Constants {
 
     const val BASE_URL = "http://10.0.2.2:8080/system/api/"
@@ -19,4 +21,5 @@ object Constants {
     const val PATH_GET_ORDERS_ME_DELIVERED = "orders/me/delivered"
     const val PATH_CREATE_QUALIFICATION = "qualifications"
 
+    const val PATH_GET_ORDERS_DELIVERED = "orders/delivered"
 }
