@@ -76,6 +76,8 @@
         android:layout_height="wrap_content"
         android:text="Ver Conductores"
         android:visibility="gone" />
+
+    <Button
         android:id="@+id/btnDeliveredOrdersToQualify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

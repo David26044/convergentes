@@ -35,48 +35,24 @@ class OrdersAdapter(
     override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
         val order = orders[position]
 
-        holder.tvOrderId.text = String.format("Orden #%d", order.id)
-        holder.tvProduct.text = String.format("Producto: %s", order.productType?.name ?: "N/A")
-        holder.tvPayment.text = String.format("Pago: %s", order.paymentMethod?.name ?: "N/A")
-        holder.tvDeclaredValue.text = String.format("Valor declarado: %.2f", order.declaredValue ?: 0.0)
+        holder.tvOrderId.text = "Orden #${order.id}"
+        holder.tvProduct.text = "Producto: ${order.productType.name}"
+        holder.tvPayment.text = "Pago: ${order.paymentMethod.name}"
+        holder.tvDeclaredValue.text = "Valor declarado: ${order.declaredValue}"
 
-        holder.tvPickup.text = String.format(
-            "Recoger en: %s - %s %s",
-            order.pickUpLocation.city,
-            order.pickUpLocation.typeVia,
-            order.pickUpLocation.numberVia
-        )
-        holder.tvPickupDriver.text = String.format(
-            "Conductor recogida: %s",
-            order.pickUpLocation.driver?.name ?: "Sin asignar"
-        )
+        holder.tvPickup.text = "Recoger en: ${order.pickUpLocation.city} - ${order.pickUpLocation.typeVia} ${order.pickUpLocation.numberVia}"
+        holder.tvPickupDriver.text = "Conductor recogida: ${order.pickUpLocation.driver?.name ?: "Sin asignar"}"
 
-        holder.tvDelivery.text = String.format(
-            "Entregar en: %s - %s %s",
-            order.deliveryLocation.city,
-            order.deliveryLocation.typeVia,
-            order.deliveryLocation.numberVia
-        )
-        holder.tvDeliveryDriver.text = String.format(
-            "Conductor entrega: %s",
-            order.deliveryLocation.driver?.name ?: "Sin asignar"
-        )
+        holder.tvDelivery.text = "Entregar en: ${order.deliveryLocation.city} - ${order.deliveryLocation.typeVia} ${order.deliveryLocation.numberVia}"
+        holder.tvDeliveryDriver.text = "Conductor entrega: ${order.deliveryLocation.driver?.name ?: "Sin asignar"}"
 
-        holder.tvOrderState.text = String.format(
-            "Estado: %s",
-            order.orderState?.state ?: "Desconocido"
-        )
+        holder.tvOrderState.text = "Estado: ${order.orderState.state}"
 
-        // Log para debug
-        Log.d(
-            "OrdersAdapter",
-            "📦 Orden ${order.id}: producto=${order.productType?.name}, pago=${order.paymentMethod?.name}, estado=${order.orderState?.state}, pickupDriver=${order.pickUpLocation.driver?.name}, deliveryDriver=${order.deliveryLocation.driver?.name}"
-        )
+        Log.d("OrdersAdapter", "📦 Orden ${order.id} → Estado=${order.orderState.state}")
     }
 
     fun updateData(newOrders: List<OrderResponse>) {
         orders = newOrders
         notifyDataSetChanged()
-        Log.d("OrdersAdapter", "🔄 Adapter actualizado con ${newOrders.size} órdenes")
     }
 }
