@@ -14,8 +14,8 @@ object Constants {
     const val PATH_GET_ORDERS_WITHOUT_DRIVER = "orders/unassigned"
     const val PATH_ASSIGN_DRIVER = "orders/{orderId}/assign-drivers"
     const val PATH_GET_ALL_DRIVERS = "drivers"
-
     const val PATH_GET_ORDERS_ME_DRIVER = "orders/me/driver"
+    const val PATH_POST_DRIVER = "drivers"
     const val PATH_GET_ORDERS_ME_DELIVERED = "orders/me/delivered"
     const val PATH_CREATE_QUALIFICATION = "qualifications"
 

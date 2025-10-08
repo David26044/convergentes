@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import co.edu.unipiloto.proyectodconvergentes.R
+import co.edu.unipiloto.proyectodconvergentes.ui.driver.RegisterDriverActivity
+import co.edu.unipiloto.proyectodconvergentes.ui.driver.ViewDriversActivity
 import co.edu.unipiloto.proyectodconvergentes.ui.incident.RegisterIncidentActivity
 import co.edu.unipiloto.proyectodconvergentes.ui.net.JwtDecoder
 import co.edu.unipiloto.proyectodconvergentes.ui.net.Roles
@@ -40,6 +42,8 @@ class MainMenuActivity : AppCompatActivity() {
         val btnLogout = findViewById<Button>(R.id.btnLogout)
         val btnDriverOrders = findViewById<Button>(R.id.btnDriverOrders)
         val btnChangeOrderState = findViewById<Button>(R.id.btnChangeOrderState)
+        val btnRegisterDriver = findViewById<Button>(R.id.btnRegisterDriver)
+        val btnViewDrivers = findViewById<Button>(R.id.btnViewDrivers)
         val btnDeliveredOrdersToQualify = findViewById<Button>(R.id.btnDeliveredOrdersToQualify)
         val btnAllQualifications = findViewById<Button>(R.id.btnAllQualifications)
 
@@ -59,12 +63,15 @@ class MainMenuActivity : AppCompatActivity() {
                         btnCreateOrder.visibility = View.GONE
                         btnViewOrders.visibility = View.VISIBLE
                         btnAssignOrders.visibility = View.VISIBLE
-                        btnAssignInHub.visibility = View.VISIBLE // 👈 habilitado para admin
+                        btnAssignInHub.visibility = View.VISIBLE
                         btnMyOrders.visibility = View.GONE
                         btnRegisterIncident.visibility = View.GONE
                         btnDriverOrders.visibility = View.GONE
                         btnChangeOrderState.visibility = View.GONE
+                        btnRegisterDriver.visibility = View.VISIBLE
+                        btnViewDrivers.visibility = View.VISIBLE
                         btnAllQualifications.visibility = View.VISIBLE
+
                     }
                     roles.contains(Roles.REMITENT) -> {
                         btnCreateOrder.visibility = View.VISIBLE
@@ -119,6 +126,13 @@ class MainMenuActivity : AppCompatActivity() {
 
                 btnChangeOrderState.setOnClickListener {
                     startActivity(Intent(this@MainMenuActivity, DriverOrdersByStateActivity::class.java))
+                }
+                btnRegisterDriver.setOnClickListener {
+                    startActivity(Intent(this@MainMenuActivity, RegisterDriverActivity::class.java))
+                }
+
+                btnViewDrivers.setOnClickListener {
+                    startActivity(Intent(this@MainMenuActivity, ViewDriversActivity::class.java))
                 }
 
                 btnDeliveredOrdersToQualify.setOnClickListener {

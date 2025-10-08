@@ -1,0 +1,54 @@
+<!-- res/layout/item_driver.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="?attr/selectableItemBackground"
+    android:layout_marginBottom="8dp">
+
+    <TextView
+        android:id="@+id/txtDriverName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="Nombre" />
+
+    <TextView
+        android:id="@+id/txtDriverEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email" />
+
+    <TextView
+        android:id="@+id/txtDriverPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Teléfono" />
+
+    <TextView
+        android:id="@+id/txtDriverIdentification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Identificación" />
+
+    <TextView
+        android:id="@+id/txtDriverHireDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha de ingreso" />
+
+    <TextView
+        android:id="@+id/txtDriverLicense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Licencia" />
+
+    <TextView
+        android:id="@+id/txtDriverVehicle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vehículo" />
+
+</LinearLayout>
