@@ -1,5 +1,6 @@
 package co.edu.unipiloto.proyectodconvergentes.ui.net
 
+import co.edu.unipiloto.proyectodconvergentes.ui.driver.DriverRegisterRequest
 import co.edu.unipiloto.proyectodconvergentes.ui.driver.DriverResponse
 import co.edu.unipiloto.proyectodconvergentes.ui.location.LocationResponse
 import co.edu.unipiloto.proyectodconvergentes.ui.locationType.LocationTypeResponse
@@ -61,5 +62,8 @@ interface BackendService {
     suspend fun orderNextState(
         @Path("orderId") orderId: Long
     ): Response<OrderResponse>
+
+    @POST(Constants.PATH_POST_DRIVER)
+    suspend fun registerDriver(@Body driverRequest: DriverRegisterRequest): Response<DriverResponse>
 
 }

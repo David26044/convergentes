@@ -63,5 +63,18 @@
         android:text="Cambiar Estado de Órdenes"
         android:visibility="gone"/>
 
+    <Button
+        android:id="@+id/btnRegisterDriver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar Conductor"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnViewDrivers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Conductores"
+        android:visibility="gone" />
 
 </LinearLayout>
