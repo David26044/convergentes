@@ -19,6 +19,16 @@
             android:exported="false" />
         <activity
             android:name=".ui.driver.RegisterDriverActivity"
+            android:name=".ui.order.AssignDeliveryDriverActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.qualification.AllQualificationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.qualification.CreateQualificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.qualification.GetDeliveredOrdersForQualificationActivity"
             android:exported="false" />
         <activity
             android:name=".ui.order.DriverOrdersByStateActivity"

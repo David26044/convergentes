@@ -17,9 +17,12 @@ import co.edu.unipiloto.proyectodconvergentes.ui.net.TokenManager
 import co.edu.unipiloto.proyectodconvergentes.ui.order.RegisterOrderActivity
 import co.edu.unipiloto.proyectodconvergentes.ui.login.LoginActivity
 import co.edu.unipiloto.proyectodconvergentes.ui.order.AssignPickupDriverActivity
+import co.edu.unipiloto.proyectodconvergentes.ui.order.AssignDeliveryDriverActivity
 import co.edu.unipiloto.proyectodconvergentes.ui.order.DriverOrdersActivity
 import co.edu.unipiloto.proyectodconvergentes.ui.order.DriverOrdersByStateActivity
 import co.edu.unipiloto.proyectodconvergentes.ui.order.GetMyOrdersActivity
+import co.edu.unipiloto.proyectodconvergentes.ui.qualification.AllQualificationsActivity
+import co.edu.unipiloto.proyectodconvergentes.ui.qualification.GetDeliveredOrdersForQualificationActivity
 import kotlinx.coroutines.launch
 
 class MainMenuActivity : AppCompatActivity() {
@@ -33,6 +36,7 @@ class MainMenuActivity : AppCompatActivity() {
         val btnCreateOrder = findViewById<Button>(R.id.btnCreateOrder)
         val btnViewOrders = findViewById<Button>(R.id.btnViewOrders)
         val btnAssignOrders = findViewById<Button>(R.id.btnAssignOrders)
+        val btnAssignInHub = findViewById<Button>(R.id.btnAssignInHub) // nuevo botón
         val btnMyOrders = findViewById<Button>(R.id.btnMyOrders)
         val btnRegisterIncident = findViewById<Button>(R.id.btnRegisterIncident)
         val btnLogout = findViewById<Button>(R.id.btnLogout)
@@ -40,6 +44,8 @@ class MainMenuActivity : AppCompatActivity() {
         val btnChangeOrderState = findViewById<Button>(R.id.btnChangeOrderState)
         val btnRegisterDriver = findViewById<Button>(R.id.btnRegisterDriver)
         val btnViewDrivers = findViewById<Button>(R.id.btnViewDrivers)
+        val btnDeliveredOrdersToQualify = findViewById<Button>(R.id.btnDeliveredOrdersToQualify)
+        val btnAllQualifications = findViewById<Button>(R.id.btnAllQualifications)
 
         lifecycleScope.launch {
             try {
@@ -57,26 +63,32 @@ class MainMenuActivity : AppCompatActivity() {
                         btnCreateOrder.visibility = View.GONE
                         btnViewOrders.visibility = View.VISIBLE
                         btnAssignOrders.visibility = View.VISIBLE
+                        btnAssignInHub.visibility = View.VISIBLE
                         btnMyOrders.visibility = View.GONE
                         btnRegisterIncident.visibility = View.GONE
                         btnDriverOrders.visibility = View.GONE
                         btnChangeOrderState.visibility = View.GONE
                         btnRegisterDriver.visibility = View.VISIBLE
                         btnViewDrivers.visibility = View.VISIBLE
+                        btnAllQualifications.visibility = View.VISIBLE
+
                     }
                     roles.contains(Roles.REMITENT) -> {
                         btnCreateOrder.visibility = View.VISIBLE
                         btnViewOrders.visibility = View.GONE
                         btnAssignOrders.visibility = View.GONE
+                        btnAssignInHub.visibility = View.GONE
                         btnMyOrders.visibility = View.VISIBLE
                         btnRegisterIncident.visibility = View.GONE
                         btnDriverOrders.visibility = View.GONE
                         btnChangeOrderState.visibility = View.GONE
+                        btnDeliveredOrdersToQualify.visibility = View.VISIBLE
                     }
                     roles.contains(Roles.DRIVER) -> {
                         btnCreateOrder.visibility = View.GONE
                         btnViewOrders.visibility = View.GONE
                         btnAssignOrders.visibility = View.GONE
+                        btnAssignInHub.visibility = View.GONE
                         btnMyOrders.visibility = View.GONE
                         btnRegisterIncident.visibility = View.VISIBLE
                         btnDriverOrders.visibility = View.VISIBLE
@@ -100,6 +112,10 @@ class MainMenuActivity : AppCompatActivity() {
                     startActivity(Intent(this@MainMenuActivity, AssignPickupDriverActivity::class.java))
                 }
 
+                btnAssignInHub.setOnClickListener { // 👈 abre pantalla de asignar en hub
+                    startActivity(Intent(this@MainMenuActivity, AssignDeliveryDriverActivity::class.java))
+                }
+
                 btnRegisterIncident.setOnClickListener {
                     startActivity(Intent(this@MainMenuActivity, RegisterIncidentActivity::class.java))
                 }
@@ -107,6 +123,7 @@ class MainMenuActivity : AppCompatActivity() {
                 btnMyOrders.setOnClickListener {
                     startActivity(Intent(this@MainMenuActivity, GetMyOrdersActivity::class.java))
                 }
+
                 btnChangeOrderState.setOnClickListener {
                     startActivity(Intent(this@MainMenuActivity, DriverOrdersByStateActivity::class.java))
                 }
@@ -116,6 +133,14 @@ class MainMenuActivity : AppCompatActivity() {
 
                 btnViewDrivers.setOnClickListener {
                     startActivity(Intent(this@MainMenuActivity, ViewDriversActivity::class.java))
+                }
+
+                btnDeliveredOrdersToQualify.setOnClickListener {
+                    startActivity(Intent(this@MainMenuActivity, GetDeliveredOrdersForQualificationActivity::class.java))
+                }
+
+                btnAllQualifications.setOnClickListener {
+                    startActivity(Intent(this@MainMenuActivity, AllQualificationsActivity::class.java))
                 }
 
                 btnLogout.setOnClickListener {
@@ -142,5 +167,3 @@ class MainMenuActivity : AppCompatActivity() {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 }
-
-
