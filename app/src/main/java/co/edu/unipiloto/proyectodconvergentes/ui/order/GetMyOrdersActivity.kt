@@ -10,7 +10,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.edu.unipiloto.proyectodconvergentes.R
-import co.edu.unipiloto.proyectodconvergentes.ui.net.*
+import co.edu.unipiloto.proyectodconvergentes.ui.net.JwtDecoder
+import co.edu.unipiloto.proyectodconvergentes.ui.net.RetrofitModule
+import co.edu.unipiloto.proyectodconvergentes.ui.net.Roles
+import co.edu.unipiloto.proyectodconvergentes.ui.net.TokenManager
+import co.edu.unipiloto.proyectodconvergentes.ui.net.hasAnyRole
 import com.google.android.material.chip.ChipGroup
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -35,7 +39,9 @@ class GetMyOrdersActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
         chipGroupFilters = findViewById(R.id.chipGroupFilters)
 
-        adapter = OrdersAdapter(emptyList())
+        // ✅ INICIALIZA EL ADAPTER AQUÍ
+        adapter = OrdersAdapter() // arranca vacío, luego se llena con updateData()
+
         recyclerOrders.layoutManager = LinearLayoutManager(this)
         recyclerOrders.adapter = adapter
 
@@ -53,6 +59,7 @@ class GetMyOrdersActivity : AppCompatActivity() {
                 val token = tokenManager.getToken()
                 if (token.isNullOrBlank()) {
                     showError("Token no encontrado")
+                    progressBar.visibility = View.GONE
                     return@launch
                 }
 

@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="co.edu.unipiloto.proyectodconvergentes">
-    <!-- 🔑 Permiso para usar internet -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- 🔑 Permisos necesarios -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,51 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="23">
         <activity
+            android:name=".ui.stats.OrdersStatsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.ResetPasswordActivity"
+            android:exported="true">
+
+            <!-- Este intent-filter permite abrir la app desde el enlace del correo -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- esquema del enlace del correo -->
+                <!-- ejemplo: myapp://reset?token=XYZ -->
+                <data
+                    android:host="reset"
+                    android:scheme="myapp" />
+            </intent-filter>
+
+            <!-- (Opcional) también permite que se abra si usas enlace web en el futuro -->
+            <!-- ejemplo: https://tuservidor.com/reset?token=XYZ -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="tuservidor.com"
+                    android:pathPrefix="/reset"
+                    android:scheme="https" />
+            </intent-filter>
+
+        </activity> <!-- 🔑 ForgotPasswordActivity (solo interna) -->
+        <activity
+            android:name=".ui.login.ForgotPasswordActivity"
+            android:exported="false" /> <!-- 🔹 Otras actividades -->
+        <activity
+            android:name=".ui.user.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.UserProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.driver.ViewDriversActivity"
             android:exported="false" />
         <activity
@@ -22,7 +70,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.order.AssignDeliveryDriverActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ui.qualification.AllQualificationsActivity"
             android:exported="false" />
@@ -52,10 +100,10 @@
             android:exported="false" />
         <activity
             android:name=".ui.incident.RegisterIncidentActivity"
-            android:exported="false" /> <!-- Registro -->
+            android:exported="false" />
         <activity
             android:name=".ui.register.RegisterActivity"
-            android:exported="false" /> <!-- Login (actividad principal que abre la app) -->
+            android:exported="false" /> <!-- 🚀 Pantalla principal de inicio (LoginActivity) -->
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true">
@@ -65,6 +113,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".ui.order.OrderNotificationService"
+            android:exported="false" />
     </application>
-
 </manifest>

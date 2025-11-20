@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import co.edu.unipiloto.proyectodconvergentes.R
 
 class OrdersAdapter(
-    private var orders: List<OrderResponse>
+    private var orders: List<OrderResponse> = emptyList() // ✅ valor por defecto
 ) : RecyclerView.Adapter<OrdersAdapter.OrderViewHolder>() {
 
     class OrderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -41,10 +41,12 @@ class OrdersAdapter(
         holder.tvDeclaredValue.text = "Valor declarado: ${order.declaredValue}"
 
         holder.tvPickup.text = "Recoger en: ${order.pickUpLocation.city} - ${order.pickUpLocation.typeVia} ${order.pickUpLocation.numberVia}"
-        holder.tvPickupDriver.text = "Conductor recogida: ${order.pickUpLocation.driver?.name ?: "Sin asignar"}"
+        holder.tvPickupDriver.text =
+            "Conductor recogida: ${order.pickUpLocation.driver?.name ?: "Sin asignar"}"
 
         holder.tvDelivery.text = "Entregar en: ${order.deliveryLocation.city} - ${order.deliveryLocation.typeVia} ${order.deliveryLocation.numberVia}"
-        holder.tvDeliveryDriver.text = "Conductor entrega: ${order.deliveryLocation.driver?.name ?: "Sin asignar"}"
+        holder.tvDeliveryDriver.text =
+            "Conductor entrega: ${order.deliveryLocation.driver?.name ?: "Sin asignar"}"
 
         holder.tvOrderState.text = "Estado: ${order.orderState.state}"
 

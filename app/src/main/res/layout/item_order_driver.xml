@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:padding="12dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    android:background="@android:color/transparent">
 
     <TextView
         android:id="@+id/txtDriverOrderId"
@@ -17,34 +18,36 @@
         android:id="@+id/txtDriverOrderState"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Estado"/>
+        android:text="Estado: "/>
 
-    <!-- Dirección de recogida -->
     <TextView
         android:id="@+id/txtPickupAddress"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pickup: "/>
+        android:text="Recoger en: "/>
 
-    <!-- Dirección de entrega -->
     <TextView
         android:id="@+id/txtDeliveryAddress"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Delivery: "/>
+        android:text="Entregar en: "/>
 
-    <!-- Instrucciones -->
     <TextView
         android:id="@+id/txtInstructions"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Instrucciones: "/>
 
-    <!-- Preguntar por -->
     <TextView
         android:id="@+id/txtAskFor"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Preguntar por: "/>
 
+    <Button
+        android:id="@+id/btnDriverNavigate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ir"
+        android:layout_marginTop="8dp"/>
 </LinearLayout>

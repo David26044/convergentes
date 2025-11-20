@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Restablecer contraseña</title>
+  <style>
+    :root {
+      --primary: #6200ee;
+      --success: #0a7a3d;
+      --error: #c62828;
+      --border: #ddd;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: #f5f6fa;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 400px;
+      margin: 80px auto;
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 16px;
+      color: #333;
+    }
+    p.subtitle {
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 24px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      color: #555;
+      font-weight: 500;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 15px;
+    }
+    input:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(98,0,238,0.1);
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 18px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    button:hover { background: #5300d4; }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+    .msg {
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+    .ok { color: var(--success); }
+    .err { color: var(--error); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Restablecer contraseña</h1>
+    <p class="subtitle">Ingresa y confirma tu nueva contraseña</p>
+
+    <label for="pwd1">Nueva contraseña</label>
+    <input type="password" id="pwd1" placeholder="********" minlength="8" required>
+
+    <label for="pwd2">Confirmar contraseña</label>
+    <input type="password" id="pwd2" placeholder="********" minlength="8" required>
+
+    <button id="btn">Cambiar contraseña</button>
+    <p id="msg" class="msg"></p>
+  </div>
+
+  <script>
+    // === CONFIGURA TU BACKEND AQUÍ ===
+    const BACKEND_URL = "http://localhost:8080/system/api"; // o http://192.168.X.X:8080 si lo abres en red local
+    // =================================
+
+    const $ = sel => document.querySelector(sel);
+    const token = new URLSearchParams(location.search).get("token");
+    const msg = $("#msg"), btn = $("#btn");
+
+    function show(text, ok=false){
+      msg.textContent = text;
+      msg.className = "msg " + (ok ? "ok" : "err");
+    }
+
+    $("#btn").addEventListener("click", async () => {
+      const p1 = $("#pwd1").value.trim();
+      const p2 = $("#pwd2").value.trim();
+
+      if (!token) { show("Enlace inválido o expirado"); return; }
+      if (!p1 || !p2) { show("Completa ambos campos"); return; }
+      if (p1.length < 8) { show("La contraseña debe tener mínimo 8 caracteres"); return; }
+      if (p1 !== p2) { show("Las contraseñas no coinciden"); return; }
+
+      btn.disabled = true;
+      show("Actualizando contraseña...", true);
+
+      try {
+        const resp = await fetch(`${BACKEND_URL}/auth/reset-password?newPassword=${encodeURIComponent(p1)}`, {
+          method: "POST",
+          headers: { "Authorization": `Bearer ${token}` }
+        });
+
+        if (resp.ok) {
+          show("✅ ¡Contraseña actualizada con éxito!", true);
+        } else {
+          const txt = await resp.text().catch(()=> "");
+          show(`Error ${resp.status}: ${txt || "No se pudo cambiar la contraseña"}`);
+        }
+      } catch (err) {
+        show("Error de red: " + err.message);
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

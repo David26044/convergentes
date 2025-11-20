@@ -28,6 +28,12 @@ class LoginActivity : AppCompatActivity() {
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val tvRegisterLink = findViewById<TextView>(R.id.tvRegisterLink)
+        // Botón "¿Olvidaste tu contraseña?"|
+        val tvForgotPassword = findViewById<TextView>(R.id.tvForgotPassword)
+
+        tvForgotPassword.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+        }
 
         btnLogin.setOnClickListener {
             val email = etEmail.text.toString().trim()

@@ -22,4 +22,10 @@ object Constants {
     const val PATH_CREATE_QUALIFICATION = "qualifications"
 
     const val PATH_GET_ORDERS_DELIVERED = "orders/delivered"
+    const val PATH_GET_ME = "users/me"
+    const val PATH_PATCH_ME = "users/me"
+    const val PATH_FORGOT_PASSWORD = "auth/forgot-password"
+    const val PATH_RESET_PASSWORD = "auth/reset-password"
+    const val PATH_GET_COUNT_ORDERS_BY_STATE="orders/states"
+
 }

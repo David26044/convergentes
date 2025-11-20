@@ -7,6 +7,7 @@ import co.edu.unipiloto.proyectodconvergentes.ui.locationType.LocationTypeRespon
 import co.edu.unipiloto.proyectodconvergentes.ui.login.UserLoginRequest
 import co.edu.unipiloto.proyectodconvergentes.ui.login.UserLoginResponse
 import co.edu.unipiloto.proyectodconvergentes.ui.order.AssignDriver
+import co.edu.unipiloto.proyectodconvergentes.ui.order.CountOrdersByState
 import co.edu.unipiloto.proyectodconvergentes.ui.order.OrderRequest
 import co.edu.unipiloto.proyectodconvergentes.ui.order.OrderResponse
 import co.edu.unipiloto.proyectodconvergentes.ui.order.PaymentMethodResponse
@@ -15,6 +16,8 @@ import co.edu.unipiloto.proyectodconvergentes.ui.qualification.QualificationResp
 import co.edu.unipiloto.proyectodconvergentes.ui.qualification.RegisterQualificationRequest
 import co.edu.unipiloto.proyectodconvergentes.ui.register.UserRegisterRequest
 import co.edu.unipiloto.proyectodconvergentes.ui.register.UserRegisterResponse
+import co.edu.unipiloto.proyectodconvergentes.ui.user.UpdateProfileRequest
+import co.edu.unipiloto.proyectodconvergentes.ui.user.UserResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -25,7 +28,6 @@ import retrofit2.http.Path
 interface BackendService {
     @POST(Constants.PATH_REGISTER)
     suspend fun registerNewUser(@Body userRequest: UserRegisterRequest): Response<UserRegisterResponse>
-
     @POST(Constants.PATH_LOGIN)
     suspend fun loginUser(@Body loginRequest: UserLoginRequest): Response<UserLoginResponse>
 
@@ -78,5 +80,24 @@ interface BackendService {
 
     @GET(Constants.PATH_GET_ORDERS_DELIVERED)
     suspend fun getOrdersDelivered():Response<List<OrderResponse>>
+
+    @GET(Constants.PATH_GET_ME)
+    suspend fun getMe(): Response<UserResponse>
+
+    @PATCH(Constants.PATH_PATCH_ME)
+    suspend fun updateMyprofile(@Body request: UpdateProfileRequest): Response<UserResponse>
+    @POST(Constants.PATH_FORGOT_PASSWORD)
+    suspend fun forgotPassword(
+        @retrofit2.http.Query("email") email: String
+    ): Response<String>
+
+    @POST(Constants.PATH_RESET_PASSWORD)
+    suspend fun resetPassword(
+        @retrofit2.http.Query("newPassword") newPassword: String
+    ): Response<String>
+
+    @GET(Constants.PATH_GET_COUNT_ORDERS_BY_STATE)
+    suspend fun getCountOrdersByState(): Response<List<CountOrdersByState>>
+
 }
 

@@ -36,6 +36,12 @@ android {
 }
 
 dependencies {
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    // Moshi para JSON (con soporte Kotlin)
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.1")
+    implementation("com.google.android.gms:play-services-location:21.0.1")
+    // (Opcional) Converter de Retrofit con Moshi
+    implementation("com.squareup.retrofit2:converter-moshi:2.11.0")
     // DataStore (Preferences)
     implementation("androidx.datastore:datastore-preferences:1.1.1")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
